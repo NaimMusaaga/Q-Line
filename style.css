@@ -1,0 +1,221 @@
+/* --- 1. Genel Ayarlar (Global Reset) --- */
+* {
+    margin: 0; /* Dış boşlukları sıfırla */
+    padding: 0; /* İç boşlukları sıfırla */
+    box-sizing: border-box; /* Padding ve border'ı genişliğe dahil et */
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif; /* Modern yazı tipi */
+    background-color: #f4f7f6; /* Açık arka plan */
+    color: #333; /* Ana yazı rengi */
+    line-height: 1.6; /* Okunabilirlik */
+    overflow-x: hidden; /* Mobilde yatay kaymayı engelle */
+}
+
+/* --- 2. Navigasyon Çubuğu (Navbar) --- */
+.navbar {
+    display: flex; /* Logo ve linkleri yan yana yerleştirmek için */
+    justify-content: space-between; /* İki yana yasla */
+    align-items: center; /* Dikey ortala */
+    padding: 15px 8%;
+    background-color: #233b61; /* Kurumsal lacivert */
+    position: sticky; /* Kaydırınca üstte sabit kalsın */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+    color: white;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex; /* Menü linklerini yan yana diz */
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f39c12; /* Hover rengi */
+}
+
+/* --- 3. Hero Bölümü --- */
+.hero {
+    display: flex; /* Metin ve resmi yan yana göstermek için */
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 8%;
+    gap: 30px;
+    background: white;
+}
+
+.hero-text {
+    flex: 1; /* Metnin alan kaplamasını sağla */
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    color: #233b61;
+    margin-bottom: 20px;
+}
+
+.hero-image {
+    flex: 1; /* Resmin alan kaplamasını sağla */
+    text-align: right;
+}
+
+.hero img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* --- 4. Hizmetler Bölümü (Services Grid) --- */
+.services {
+    padding: 60px 8%;
+    text-align: center;
+}
+
+.service-grid {
+    display: grid; /* Hizmet kartlarını grid ile yerleştir */
+    grid-template-columns: repeat(3, 1fr); /* Büyük ekranlarda 3 sütun */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden; /* Taşan resmi kes */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px); /* Hover’da yukarı kalkma efekti */
+}
+
+.service-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Resmi bozmadan sığdır */
+}
+
+/* --- 5. Fiyatlandırma Bölümü (Pricing) --- */
+.pricing {
+    display: flex; /* Fiyat kartlarını yan yana diz */
+    justify-content: center;
+    gap: 20px;
+    padding: 60px 8%;
+}
+
+.plan {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    flex: 1; /* Kartları eşit genişlikte yap */
+    max-width: 350px;
+    text-align: center;
+    border: 1px solid #ddd;
+    transition: 0.3s;
+}
+
+.plan:hover {
+    border-color: #f39c12;
+}
+
+.plan h3 {
+    color: #233b61;
+    margin-bottom: 10px;
+}
+
+.plan p {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.plan ul {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.plan ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* --- 6. Footer --- */
+.footer {
+    text-align: center;
+    padding: 40px;
+    background: #eee;
+}
+
+.pricing-btn {
+    background: #f39c12;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* --- 7. Tablet Uyumu --- */
+@media (max-width: 1024px) {
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr); /* Tabletlerde 2 sütun */
+    }
+}
+
+/* --- 8. Mobil Uyumluluk --- */
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column; /* Navbar'ı dikey yap */
+        padding: 15px;
+    }
+
+    .nav-links {
+        margin-top: 15px;
+        gap: 15px;
+    }
+
+    .hero {
+        flex-direction: column; /* Resim üstte, yazı altta */
+        text-align: center;
+    }
+
+    .hero-image {
+        text-align: center;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr; /* Mobilde tek sütun */
+    }
+
+    .pricing {
+        flex-direction: column; /* Fiyat kartlarını alt alta diz */
+        align-items: center;
+    }
+
+    .plan {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+}
